@@ -232,7 +232,8 @@ properites.json说明：
         },
         "flowengine-rest":{
             "props":{
-                "server.port":"8085"
+                "server.port":"8085",
+                "biz.asyncrun.url":"http://172.16.0.161:8030/biz/run?mocode={0}&lgcode={1}"
             },
             "yamls":{
 
