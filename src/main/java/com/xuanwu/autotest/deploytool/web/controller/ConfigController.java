@@ -2,12 +2,11 @@ package com.xuanwu.autotest.deploytool.web.controller;
 
 import com.xuanwu.autotest.deploytool.common.ResultHelper;
 import com.xuanwu.autotest.deploytool.service.ConfigService;
-import org.apache.commons.io.IOUtils;
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,13 +41,6 @@ public class ConfigController {
         return ResultHelper.success(resultMap);
     }
 
-    @RequestMapping("/updateConfigure")
-    @ResponseBody
-    public String uppdateConfig(){
-
-        return null;
-    }
-
     @PostMapping("/update/apaas")
     @ResponseBody
     public String updateAPAASConfig(@RequestBody Map<String,Object> requestBody){
@@ -66,6 +58,31 @@ public class ConfigController {
                 e.printStackTrace();
                 response = ResultHelper.failure(e.getMessage());
             }
+        }
+        return response;
+    }
+
+    @PostMapping("/update/apaas/{path}")
+    @ResponseBody
+    public String updateSingleConfig(@PathVariable("path")String path,@RequestBody Map<String,Object> requestBody){
+        String response;
+        try{
+            File serviceDir = new File(apaasPath,path);
+            if(!serviceDir.exists()|| !serviceDir.isDirectory()){
+                response = ResultHelper.failure("路径" + serviceDir.getAbsolutePath() +"不存在或其不是文件夹。");
+            }
+            else{
+                if(configService.serviceConfig(requestBody,path)){
+                    response = ResultHelper.success();
+                }
+                else{
+                    response = ResultHelper.failure("未知错误，请联系管理员。");
+                }
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            response = ResultHelper.failure(e.getMessage());
         }
         return response;
     }

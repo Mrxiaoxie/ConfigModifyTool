@@ -8,6 +8,11 @@
 4. curl -XPOST -H 'Content-Type:application/json' 'http://localhost:8181/config/update/apaas' -d @properties.json
 5. 如果返回OK，则表示修改成功
 
+#### 补充用法：
+为了满足单个服务的更新，服务增加了单个服务配置文件更新接口,使用如下：
+-  curl -XPOST -H 'Content-Type:application/json' 'http://localhost:8181/config/update/apaas/{serviceDir}' -d @properties.json
+-  说明:更新{apaas.path}/{serviceDir}下的配置文件
+
 properites.json说明：
 1. CommonInfo是表示公共参数
 2. apaas下的json是代表目录下的修改参数，当参数既存在公共参数中也存在目录参数中，以目录修改参数为准。

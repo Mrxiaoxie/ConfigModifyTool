@@ -110,4 +110,37 @@ public class ConfigServiceImpl implements ConfigService {
         }
         return true;
     }
+
+    @Override
+    public boolean serviceConfig(Map<String, Object> configMap, String serviceDir) throws Exception {
+        Map<String,Object> commonMap = (Map)configMap.get(COMMONPART);
+        Map<String,String> proptiesMap = (Map)commonMap.get("props");
+        Map<String,String> yamlsMap = (Map)commonMap.get("yamls");
+        Map<String,Object> apaasMap = (Map)configMap.get(PLATFORMPART);
+        File tmp =  new File(apaasPath,serviceDir);
+        if(!tmp.exists() && !tmp.isDirectory()){
+            throw new Exception("apaas路径错误，请重新配置");
+        }
+        File propFile = new File(tmp,"application.properties");
+        if(propFile.exists() && propFile.isFile()){
+            if(apaasMap.containsKey(tmp.getName())){
+                Map<String,String> specialMap = (Map<String, String>)((Map<String, Object>) apaasMap.get(tmp.getName())).get("props");
+                propertiesTool.update(propFile,true,proptiesMap,specialMap);
+            }
+            else{
+                propertiesTool.update(propFile,true,proptiesMap);
+            }
+        }
+        File yamlFile = new File(tmp,"application.yaml");
+        if(yamlFile.exists() && yamlFile.isFile()){
+            if(apaasMap.containsKey(tmp.getName())){
+                Map<String,String> specialYaml = (Map<String,String>)((Map<String,Object>)apaasMap.get(tmp.getName())).get("yamls");
+                yamlsTool.update(yamlFile,true,yamlsMap,specialYaml);
+            }
+            else{
+                yamlsTool.update(yamlFile,true,yamlsMap);
+            }
+        }
+        return true;
+    }
 }

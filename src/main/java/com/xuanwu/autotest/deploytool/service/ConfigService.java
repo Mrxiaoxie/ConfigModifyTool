@@ -7,4 +7,6 @@ public interface ConfigService {
     boolean updateConfig(Map<String,Object> configMap) throws Exception;
 
     boolean apaasConfig(Map<String,Object> configMap) throws Exception;
+
+    boolean serviceConfig(Map<String,Object> configMap,String serviceDir) throws Exception;
 }
