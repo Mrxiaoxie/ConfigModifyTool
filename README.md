@@ -13,7 +13,7 @@
 -  curl -XPOST -H 'Content-Type:application/json' 'http://localhost:8181/config/update/apaas/{serviceDir}' -d @properties.json
 -  说明:更新{apaas.path}/{serviceDir}下的配置文件
 
-properites.json说明：
+#### properites.json说明：
 1. CommonInfo是表示公共参数
 2. apaas下的json是代表目录下的修改参数，当参数既存在公共参数中也存在目录参数中，以目录修改参数为准。
 3. 针对properties文件，新增配置项可以配置成 "key":"+value",删除配置项可以配置成"key":"#value"，如果value的值是以+或#开头，则需要配置成++value或+#value。
@@ -238,7 +238,8 @@ properites.json说明：
         "flowengine-rest":{
             "props":{
                 "server.port":"8085",
-                "biz.asyncrun.url":"http://172.16.0.161:8030/biz/run?mocode={0}&lgcode={1}"
+                "biz.asyncrun.url":"http://172.16.0.161:8030/biz/run?mocode={0}&lgcode={1}",
+                "biz.run.url":"http://172.16.0.161:8030/biz/run?mocode={0}&lgcode={1}"
             },
             "yamls":{
 
