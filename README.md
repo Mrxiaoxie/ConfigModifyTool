@@ -34,43 +34,43 @@
 {
     "CommonInfo":{
         "props":{
-            "accountserv.url":"http://172.16.0.161:9021",
-            "etl.callback.url":"http://172.16.0.163:9040/quartz/jobCallback",
-            "task.callback.url":"http://172.16.0.163:9040/quartz/jobCallback",
+            "accountserv.url":"http://172.16.0.161:1234",
+            "etl.callback.url":"http://172.16.0.163:3245/quartz/jobCallback",
+            "task.callback.url":"http://172.16.0.163:3245/quartz/jobCallback",
             "biz.asyncrun.url":"http://172.16.0.161:8030/biz/asyncrun?mocode={0}&lgcode={1}",
             "username":"postgres",
-            "password":"csb123456",
+            "password":"12312",
             "url":"jdbc:postgresql://172.16.0.126:15432/xw_platform",
             "serv.accountserv":"http://172.16.0.161:9021",
             "serv.messageserv":"http://172.16.0.163:7001/api/teapi/message",
             "serv.operationserv":"http://172.16.0.161:8033",
-            "spring.datasource.masterPassword[0]":"csb123456",
+            "spring.datasource.masterPassword[0]":"12312",
             "spring.datasource.masterUsername[0]":"postgres",
-            "spring.datasource.masterUrl[0]":"jdbc:postgresql://172.16.0.126:15432/xw_platform?allowMultiQueries=true&stringtype=unspecified",
-            "spring.datasource.slaveUrl[0]":"jdbc:postgresql://172.16.0.126:15432/xw_platform?allowMultiQueries=true&stringtype=unspecified",
+            "spring.datasource.masterUrl[0]":"jdbc:postgresql://172.16.0.111:5432/xw_platform?allowMultiQueries=true&stringtype=unspecified",
+            "spring.datasource.slaveUrl[0]":"jdbc:postgresql://172.16.0.111:5432/xw_platform?allowMultiQueries=true&stringtype=unspecified",
             "spring.datasource.slaveUsername[0]":"postgres",
-            "spring.datasource.slavePassword[0]":"csb123456",
+            "spring.datasource.slavePassword[0]":"12312",
             "spring.redis.host":"172.16.0.163",
             "spring.redis.port":"6379",
             "spring.redis.password":"",
-            "spring.meta.masterPassword[0]":"csb123456",
+            "spring.meta.masterPassword[0]":"12312",
             "spring.meta.masterUsername[0]":"postgres",
-            "spring.meta.masterUrl[0]":"jdbc:postgresql://172.16.0.126:15432/xw_metadata?allowMultiQueries=true&stringtype=unspecified",
-            "spring.meta.slaveUrl[0]":"jdbc:postgresql://172.16.0.126:15432/xw_metadata?allowMultiQueries=true&stringtype=unspecified",
+            "spring.meta.masterUrl[0]":"jdbc:postgresql://172.16.0.126:5432/xw_metadata?allowMultiQueries=true&stringtype=unspecified",
+            "spring.meta.slaveUrl[0]":"jdbc:postgresql://172.16.0.126:5432/xw_metadata?allowMultiQueries=true&stringtype=unspecified",
             "spring.meta.slaveUsername[0]":"postgres",
-            "spring.meta.slavePassword[0]":"csb123456",
-            "spring.datasource.url":"jdbc:postgresql://172.16.0.126:15432/xw_platform",
+            "spring.meta.slavePassword[0]":"12312",
+            "spring.datasource.url":"jdbc:postgresql://172.16.0.126:5432/xw_platform",
             "spring.datasource.username":"postgres",
-            "spring.datasource.password":"csb123456",
+            "spring.datasource.password":"12312",
             "spring.tenant.validationQuery":"SELECT 1",
             "spring.datasource.validationQuery":"SELECT 1",
             "spring.metadata.validationQuery":"SELECT 1",
             "spring.meta.mode":"2"
         },
         "yamls":{
-            "spring.datasource.url":"jdbc:postgresql://172.16.0.126:15432/xw_platform",
+            "spring.datasource.url":"jdbc:postgresql://172.16.0.116:5432/xw_platform",
             "spring.datasource.username":"postgres",
-            "spring.datasource.password":"csb123456"
+            "spring.datasource.password":"12312"
         }
     },
     "aPaaS":{
@@ -92,7 +92,7 @@
                 "aliyun.sts.roleArn":"",
                 "aliyun.sts.accessKeyId":"",
                 "aliyun.sts.accessKeySecret":"",
-                "aliyun.sts.emulatorTenants":"1008410"
+                "aliyun.sts.emulatorTenants":"123213"
             },
             "yamls":{
 
@@ -143,7 +143,7 @@
                 "task.callback.url":"http://172.16.0.163:9040/quartz/jobCallback",
                 "impexp.queueservice.address":"http://172.16.0.163:8010",
                 "impexp.templateservice.address":"http://172.16.0.163:7000/api/teapi/protocol/file/download?filekey=",
-                "bizengine.FLY.geo.code.keys":"3e9c0d0cfae8303eae51446c6fde4d92"
+                "bizengine.FLY.geo.code.keys":"12312312312312"
             },
             "yamls":{
 
@@ -160,14 +160,14 @@
         "message-rest":{
             "props":{
                 "server.port":"8092",
-                "msg.sms.mtip":"211.147.239.62",
-                "msg.sms.mtport":"8450",
-                "msg.sms.moip":"211.147.239.62",
-                "msg.sms.moport":"8460",
-                "msg.sms.username":"test",
+                "msg.sms.mtip":"211.123.123123.62",
+                "msg.sms.mtport":"8150",
+                "msg.sms.moip":"211.12.239.62",
+                "msg.sms.moport":"8260",
+                "msg.sms.username":"223",
                 "msg.sms.password":"123456",
-                "msg.product.appKey":"955eba4a3799c39a91902338",
-                "msg.product.masterSecret":"051c77e4b8958bac2ffbf5a3"
+                "msg.product.appKey":"123123123123123123",
+                "msg.product.masterSecret":"12312312312"
             },
             "yamls":{
 
@@ -208,11 +208,11 @@
         "task-service":{
             "props":{
                 "server.port":"9040",
-                "dynanic.run.url":"http://172.16.0.163:9030/biz/runETL",
+                "dynanic.run.url":"http://172.16.0.163:9011/biz/runETL",
                 "dynanic.cancel.url":"http://172.16.0.163:9030/biz/cancelETL",
                 "serv.microservice.url":"http://172.16.0.163:7000/api/teapi/ms-biz-bycode/{0}/{1}",
                 "serv.authserv.url":"http://172.16.0.163:7000/api/",
-                "spring.datasource.url":"jdbc:postgresql://172.16.0.126:15432/xw_quartz"
+                "spring.datasource.url":"jdbc:postgresql://172.16.0.123:5432/xw_quartz"
             },
             "yamls":{
 
@@ -254,7 +254,7 @@
                 "opsserv.url":"http://172.16.0.161:8033",
                 "plat.env.url":"jdbc:postgresql://172.16.0.126:15432/xw_plat_env?allowMultiQueries=true&stringtype=unspecified",
                 "plat.env.username":"postgres",
-                "plat.env.password":"csb123456"
+                "plat.env.password":"123123"
             },
             "yamls":{
 
